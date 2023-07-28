@@ -1,26 +1,32 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../components/ui/Button";
-import { useAuthContext } from "../context/AuthContext";
-import { addOrUpdateToCart } from "../api/firebase";
+import useCart from "../hooks/useCart";
 
 function ProductDetail() {
-  const { uid } = useAuthContext();
+  const { addOrUpdateItem } = useCart();
   const {
     state: {
       product: { id, image, title, description, category, price, options },
     },
   } = useLocation();
   const [selected, setSelected] = useState(options && options[0]);
-
+  const [success, setSuccess] = useState();
   const handleSelect = (e) => setSelected(e.target.value);
   const handleClick = (e) => {
     const product = { id, image, title, price, option: selected, quantity: 1 };
-    addOrUpdateToCart(uid, product);
+    addOrUpdateItem.mutate(product, {
+      onSuccess: () => {
+        setSuccess("🛍️The item has been added to the shopping cart🛍️");
+        setTimeout(() => setSuccess(null), 3000);
+      },
+    });
   };
   return (
     <>
-      <p className="mx-12 mt-4 text-gray-700">{category}</p>
+      <p className="mx-12 mt-4 text-gray-700 border-b border-brand text-2xl">
+        {category}
+      </p>
       <section className="flex flex-col md:flex-row p-4 ">
         <img className=" w-full h-74 px-4 basis-7/12" src={image} alt={title} />
         <div className="w-full basis-5/12 flex flex-col p-4 ">
@@ -45,6 +51,7 @@ function ProductDetail() {
                 ))}
             </select>
           </div>
+          {success && <p className="my-2">{success}</p>}
           <Button text="Add to Cart" onClick={handleClick} />
         </div>
       </section>
