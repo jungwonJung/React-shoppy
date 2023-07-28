@@ -89,7 +89,7 @@ function Footer() {
           <BsGithub className="w-7 h-7" />
         </Link>
         <Link
-          className="w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center hover:scale-110 hover:bg-brand"
+          className="w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center hover:scale-110 "
           to="https://www.linkedin.com/in/jungwon-jung-218750232/"
         >
           <BsLinkedin className="w-6 h-6" />
