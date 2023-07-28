@@ -46,7 +46,7 @@ Setting up with .env
 1.  Clone the repository:
 
    ```
-   git clone https://github.com/jungwonJung/React-Todo-App.git
+   git clone https://github.com/jungwonJung/React-shoppy.git
    ```
 
 2.  Install the dependencies:
