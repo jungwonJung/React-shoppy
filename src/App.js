@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { AuthContextProvider } from "./context/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ScrollToTopOnPageChange from "./hooks/ScrollToTopOnPageChange";
 
 const queryClient = new QueryClient();
 
@@ -10,6 +11,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <Navbar />
+        <ScrollToTopOnPageChange />
         <Outlet />
       </AuthContextProvider>
     </QueryClientProvider>
