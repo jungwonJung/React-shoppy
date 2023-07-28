@@ -1,8 +1,9 @@
 import React from "react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { FaEquals } from "react-icons/fa";
 import CartItem from "../components/CartItem";
 import PriceCard from "../components/PriceCard";
-import { FaEquals } from "react-icons/fa";
 import Button from "../components/ui/Button";
 import useCart from "../hooks/useCart";
 
@@ -11,7 +12,13 @@ const SHIPPING = 5;
 function MyCart() {
   const {
     cartQuery: { isLoading, data: products },
+    removeAllItem,
   } = useCart();
+  const navigate = useNavigate();
+  const handleChange = () => {
+    removeAllItem.mutate();
+    navigate("/payment");
+  };
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -22,6 +29,7 @@ function MyCart() {
       (prev, curr) => prev + parseInt(curr.price) * curr.quantity,
       0
     );
+
   return (
     <section className="p-8 flex flex-col">
       <p className="text-2xl text-center font-bold pb-4 border-b border-gray-300 ">
@@ -43,7 +51,11 @@ function MyCart() {
             <FaEquals className="shrink-0" />
             <PriceCard text="Total Amount" price={totalPrice + SHIPPING} />
           </div>
-          <Button text="Order" />
+          <Button
+            text="Order"
+            style={{ fontSize: "2rem" }}
+            onClick={handleChange}
+          />
         </>
       )}
     </section>

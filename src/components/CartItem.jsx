@@ -21,7 +21,7 @@ function CartItem({
   const handleDelete = () => removeItem.mutate(id);
 
   return (
-    <li className="flex justify-between my-2 items-center border-b border-gray-400">
+    <li className="flex justify-between my-2 items-center border-b border-gray-300">
       <img className="w-24 md:w-48 rounded-lg" src={image} alt={title} />
       <div className="flex-1 flex justify-between ml-4">
         <div className="basis-3/5 ">
