@@ -2,7 +2,7 @@
 
 ## [Shoppy](https://meek-figolla-e9ce50.netlify.app/) # Check this Service
 
-Creating a service similar to YouTube, using the YouTube API
+I created a super simple online shopping mall to study React. It doesn't have many features, and I didn't develop any backend using Firebase. Instead, I focused on implementing basic functionalities that you would find in a real shopping mall. Through this project, I am learning React and exploring various features that are typically found in an actual e-commerce website
 
 ![shoppy](https://github.com/jungwonJung/React-shoppy/assets/63602609/2149c417-3449-452b-8bfa-b07b959b618c)
 
