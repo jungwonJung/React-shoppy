@@ -4,6 +4,7 @@
 
 Creating a service similar to YouTube, using the YouTube API
 
+![shoppy](https://github.com/jungwonJung/React-shoppy/assets/63602609/2149c417-3449-452b-8bfa-b07b959b618c)
 
 
 ## Technologies Used
