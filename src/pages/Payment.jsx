@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Payment() {
   const navigate = useNavigate();
-  const handleChange = () => {
+  const handleToHome = () => {
     navigate("/");
   };
   return (
@@ -17,7 +17,7 @@ function Payment() {
       <Button
         text="Go Back to Home"
         style={{ fontSize: "1.3rem", borderRadious: "12px" }}
-        onClick={handleChange}
+        onClick={handleToHome}
       />
     </div>
   );

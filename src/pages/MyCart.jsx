@@ -6,6 +6,7 @@ import CartItem from "../components/CartItem";
 import PriceCard from "../components/PriceCard";
 import Button from "../components/ui/Button";
 import useCart from "../hooks/useCart";
+import { BsFillCartXFill } from "react-icons/bs";
 
 const SHIPPING = 5;
 
@@ -15,9 +16,12 @@ function MyCart() {
     removeAllItem,
   } = useCart();
   const navigate = useNavigate();
-  const handleChange = () => {
+  const handleToHome = () => {
     removeAllItem.mutate();
     navigate("/payment");
+  };
+  const handleToProducts = () => {
+    navigate("/products");
   };
 
   if (isLoading) return <p>Loading...</p>;
@@ -35,7 +39,21 @@ function MyCart() {
       <p className="text-2xl text-center font-bold pb-4 border-b border-gray-300 ">
         My Cart
       </p>
-      {!hasProducts && <p>Empty My Cart, Let s go Shopping</p>}
+      {!hasProducts && (
+        <div className="flex flex-col justify-center items-center pt-64">
+          <i className="text-brand text-9xl mb-5">
+            <BsFillCartXFill />
+          </i>
+          <h1 className="font-bold text-4xl mb-6">
+            Empty My Cart, Let s go Shopping
+          </h1>
+          <Button
+            text="Go To Products List"
+            style={{ fontSize: "1.3rem", borderRadious: "12px" }}
+            onClick={handleToProducts}
+          />
+        </div>
+      )}
       {hasProducts && (
         <>
           <ul className="border-b border-gray-300 mb-8 p-4 px-8">
@@ -54,7 +72,7 @@ function MyCart() {
           <Button
             text="Order"
             style={{ fontSize: "2rem" }}
-            onClick={handleChange}
+            onClick={handleToHome}
           />
         </>
       )}
