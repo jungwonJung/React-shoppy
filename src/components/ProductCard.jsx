@@ -11,7 +11,7 @@ function ProductCard({
       onClick={() => {
         navigate(`/products/${id}`, { state: { product } });
       }}
-      className="rounded-lg shadow-md overflow-hidden cursor-pointer transition-all hover:scale-110"
+      className="w-3/4 rounded-lg shadow-md overflow-hidden cursor-pointer transition-all hover:scale-110"
     >
       <img className="w-full" src={image} alt={title} />
       <div className="mt-2 px-2 text-lg flex justify-between items-center">
