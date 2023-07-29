@@ -27,6 +27,13 @@ The project is deployed on Netlify. You can visit the live site [here](https://m
 - Admin Add New Product
 - Add Cart
 
+
+
+## Next Goal
+
+- Well made responsible web design
+- add real payment module
+
 Getting Started
 ---------------
 
