@@ -10,8 +10,6 @@ import FooterSection from "./FooterSection";
 const iconStyle =
   "w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center mx-2 hover:scale-110 hover:cursor-pointer";
 
-// const h2Style = "mb-6 font-bold text-xl";
-
 function Footer() {
   const socialLinks = [
     {
@@ -25,10 +23,13 @@ function Footer() {
   ];
 
   return (
-    <div style={{ height: "750px" }}>
+    <div
+      style={{ height: "750px" }}
+      className="flex flex-col justify-center items-center"
+    >
       <section
         style={{ height: "350px" }}
-        className="bg-gray-100 mt-20 flex justify-around items-center rounded-lg p-36"
+        className="bg-gray-100 mt-20 flex justify-around items-center rounded-lg p-12 w-5/6"
       >
         <IconBox
           icon={<BsTruck />}
@@ -48,7 +49,7 @@ function Footer() {
       </section>
       <section
         style={{ height: "350px" }}
-        className="mt-10 p-36 flex justify-center items-center text-gray-400"
+        className="w-full p-36 flex justify-center items-center text-gray-400"
       >
         <FooterSection
           title="About Shoppy"
@@ -74,7 +75,7 @@ function Footer() {
       </section>
       <section
         style={{ height: "50px" }}
-        className="flex justify-center items-center rounded-lg px-96"
+        className="w-full flex justify-center items-center rounded-lg px-96 pb-4"
       >
         {socialLinks.map((linkItem, index) => (
           <Link key={index} className={iconStyle} to={linkItem.link}>
